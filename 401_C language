@@ -1,0 +1,108 @@
+//
+//  main.c
+//  Assignment3
+//
+//  Created by HannahPark on 2017-01-17.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
+    
+//    ====================================
+//    Problem3 -1.
+//    ====================================
+//    
+//    int age;
+//    printf("Enter your age");
+//    
+//    scanf("%d", &age);
+//    
+//    if(age<20)
+//    {
+//        printf("You are too young!\n");
+//    }
+//    else if(age>=20 && age<40)
+//    {
+//        printf("You are not that young!\n");
+//    }
+//    else
+//    {
+//        printf("You are old!\n");
+//    }
+//    printf("You have entered %d \n", age);
+//}
+//
+
+
+//    ====================================
+//    Problem3 -2.
+//    ====================================
+//    
+//    int girl;
+//    girl = 1;
+//    
+//    printf("If you are a girl press button 1 or not 2 :");
+//    scanf("%d", &girl);
+//
+//    if(girl==1)
+//    {
+//        printf("Hannah");
+//    }else{
+//        printf("David");
+//    }
+//
+    
+    
+//    ====================================
+//    Problem3 -3.
+//    ====================================
+//
+//
+//    int digit;
+//    int count = 0;
+//    
+//    printf("What is the number in your mind?:");
+//    scanf("%d", &digit);
+//    
+//    if (digit > 9999){
+//        printf("type again. The number should be between 0 and 9999\n");
+//        printf("What is the number in your mind?:");
+//        scanf("%d", &digit);
+//    }
+//    
+//    
+//    for(int i=digit; i>0; i /= 10)
+//    {
+//        count = count + 1;
+//    }
+//    printf("Number of digits: %d\n", count);
+//   
+    
+    
+    
+    ====================================
+    Problem3 -4.
+    ====================================
+
+    
+    int num;
+    
+    printf("what is the number in your mind?:");
+    scanf("%d", &num);
+    
+    if (num>200){
+        printf("Your number is bigger than 200\n");
+        printf("what is the number in your mind?:");
+        scanf("%d", &num);
+        
+    }
+    
+    if(num%2 == 0)
+       printf("The number is even\n");
+    else
+       printf("The number is odd\n");
+    
+    return 0;
+}
