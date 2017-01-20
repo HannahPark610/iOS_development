@@ -1,0 +1,61 @@
+//
+//  main.c
+//  method1
+//
+//  Created by HannahPark on 2017-01-19.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#include <stdio.h>
+
+//forward declaration
+void printSum(int num1, int num2);
+int factorial(int num);
+void printDigit(int number);
+
+int main(int argc, const char * argv[]) {
+    // insert code here...
+//    printf("Hello, World!\n");
+    
+//function call
+    printSum(10, 20);
+    printDigit(2845);
+    
+    int result = factorial(4);
+    
+    printf("%d\n", result);
+    
+    return 1;
+}
+
+ //funtion definition
+void printSum(int num1, int num2)
+{
+    //funtion body
+    int result = num1+num2;
+    
+    printf("result is %d", result);
+}
+
+
+int factorial(int num)
+{
+    int result = 1;
+    
+    for(int i=num; i>=1; i--)
+    {
+        result = i * result;
+    }
+    return result;
+}
+
+
+void printDigit(int number)
+{
+    int reminder;
+    for(int i=number; i>0; i=i/10)
+    {
+        reminder = i%10;
+       printf("%d\n",reminder);
+    }
+}
