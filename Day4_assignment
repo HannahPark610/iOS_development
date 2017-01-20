@@ -1,0 +1,36 @@
+==================================================
+problem 1-1.
+==================================================
+#include <stdlib.h>
+
+void resultInteger(int num);
+
+int main(int argc, const char * argv[]) {
+    
+    
+    int resultInteger(3);
+    int num = 3;
+    printf("%d\n");
+
+    return 0;
+}
+
+
+
+==================================================
+problem 1-2.
+==================================================
+
+#include <stdlib.h>
+
+void resultInteger(int num);
+
+int main(int argc, const char * argv[]) {
+    
+    
+    int resultInteger(3);
+    int num = 3;
+    printf("%d\n");
+
+    return 0;
+}
