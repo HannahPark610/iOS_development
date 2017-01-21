@@ -8,13 +8,12 @@ void resultInteger(int num);
 int main(int argc, const char * argv[]) {
     
     
-    int resultInteger(3);
+    int result(int num);
     int num = 3;
-    printf("%d\n");
-
+    printf("%d\n", num);
+    
     return 0;
 }
-
 
 
 ==================================================
