@@ -23,14 +23,15 @@ problem 1-2.
 
 #include <stdlib.h>
 
-void resultInteger(int num);
+int main(void)
+{
+int num1, num2;
+int result;
+printf("Typing two numbers:")
 
-int main(int argc, const char * argv[]) {
-    
-    
-    int resultInteger(3);
-    int num = 3;
-    printf("%d\n");
+scanf("%d %d", &num1, &num2);
+result = num1 + num2;
+printf("%d + %d = %d", num1, num2, result);
 
-    return 0;
+return:0;
 }
