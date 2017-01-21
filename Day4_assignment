@@ -1,19 +1,30 @@
-==================================================
-problem 1-1.
-==================================================
+//
+//  main.c
+//  assignment_4day-1
+//
+//  Created by HannahPark on 2017-01-19.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#include <stdio.h>
 #include <stdlib.h>
 
-void resultInteger(int num);
+//========================================
+//problem 1-1.
+//========================================
 
+//void resultInteger(int num);
+//
 int main(int argc, const char * argv[]) {
-    
-    
-    int result(int num);
-    int num = 3;
-    printf("%d\n", num);
-    
-    return 0;
-}
+//
+//    
+//    int result(int num);
+//    int num = 3;
+//    printf("%d\n", num);
+//    
+//    return 0;
+//}
+
 
 
 //=======================================
@@ -32,9 +43,6 @@ int main(int argc, const char * argv[]) {
 //    result = num1 + num2;
 //    printf("%d + %d = %d\n", num1, num2, result);
 //    
-//    return 0;
-//}
-
 
     
     
@@ -60,32 +68,33 @@ int main(int argc, const char * argv[]) {
 //    {
 //        printf("%d\n", num1||num2);
 //    }
-//
-//    return 0;
-//}
 
 
 //=======================================
 //problem 3.
 //=======================================
 
-    int num, count, min, max;
+//    int num, count, min, max;
+//    
+//    printf("Enter min range:");
+//    scanf("%d", &min);
+//    
+//    printf("Enter max range:");
+//    scanf("%d", &max);
+//    
+//    count = 0;
+//    
+//    for(num=min+1; num<max; num++)
+//    {
+//        count=count+1;
+//    }
+//        
+//    printf("It's your between number: %d\n", count);
+//    
+//
     
-    printf("Enter min range:");
-    scanf("%d", &min);
-    
-    printf("Enter max range:");
-    scanf("%d", &max);
-    
-    count = 0;
-    
-    for(num=min+1; num<max; num++)
-    {
-        count=count+1;
-    }
-        
-    printf("It's your between number: %d\n", count);
     
     
     return 0;
 }
+
