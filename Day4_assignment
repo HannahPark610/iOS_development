@@ -98,6 +98,14 @@ int main(int argc, const char * argv[]) {
 //problem 4.
 //=======================================
     
+    int num1, num2, i;
+    char j;
+    
+    printf("choice two numbers:");
+    scanf("%d %d", num1, num2);
+    
+    printf("What do you want operate about two numbers?:");
+    scanf("%c", j);
     
     return 0;
 }
