@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <conio.h>
 
 //========================================
 //problem 1-1.
@@ -98,14 +99,25 @@ int main(int argc, const char * argv[]) {
 //problem 4.
 //=======================================
     
-    int num1, num2, i;
-    char j;
+    int num1, num2;
+    int sum, difference, product, modulo;
+    float quotient;
     
     printf("choice two numbers:");
     scanf("%d %d", num1, num2);
     
-    printf("What do you want operate about two numbers?:");
-    scanf("%c", j);
+    sum = num1 + num2;
+    difference = num1 - num2;
+    product = num1 * num2;
+    quotient = (float)num1 / num2;
+    modulo= num1 % num2;
+    
+    printf(" sum(+) = %d", sum);
+    printf(" difference(-) = %d", difference);
+    printf(" product(*) = %d", product);
+    printf(" quotient(/) = %d", quotient);
+    printf(" modulo(%) = %d", modulo);
+
     
     return 0;
 }
