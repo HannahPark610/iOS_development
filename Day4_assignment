@@ -118,11 +118,11 @@ int main(int argc, const char * argv[]) {
     quotient = (float)num1 / num2;
     modulo= num1 % num2;
     
-    printf("sum(+) = %d", sum);
-    printf("difference(-) = %d", difference);
-    printf("multiplication(*) = %d", product);
-    printf("division(/) = %f", quotient);
-    printf("remainder(%) = %d", modulo);
+    printf("%d (+) %d %d\n", num1, num2, sum);
+    printf("%d (-) %d %d\n", num1, num2, difference);
+    printf("%d (*) %d %d\n", num1, num2, product);
+    printf("%d (/) %d %f\n", num1, num2, quotient);
+    printf("%d (%) %d %d\n", num1, num2, modulo);
 
     
     return 0;
