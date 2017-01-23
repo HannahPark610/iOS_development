@@ -95,16 +95,22 @@ int main(int argc, const char * argv[]) {
 //
     
     
-//=======================================
-//problem 4.
-//=======================================
+=======================================
+problem 4.
+=======================================
+    
+#include <stdio.h>
+
+int main(int argc, const char * argv[]) {
     
     int num1, num2;
     int sum, difference, product, modulo;
     float quotient;
-    
-    printf("choice two numbers:");
-    scanf("%d %d", num1, num2);
+
+    printf("Enter First Number: ");
+    scanf("%d", &num1);
+    printf("Enter Second Number: ");
+    scanf("%d", &num2);
     
     sum = num1 + num2;
     difference = num1 - num2;
@@ -112,12 +118,25 @@ int main(int argc, const char * argv[]) {
     quotient = (float)num1 / num2;
     modulo= num1 % num2;
     
-    printf(" sum(+) = %d", sum);
-    printf(" difference(-) = %d", difference);
-    printf(" product(*) = %d", product);
-    printf(" quotient(/) = %d", quotient);
-    printf(" modulo(%) = %d", modulo);
+    printf("sum(+) = %d", sum);
+    printf("difference(-) = %d", difference);
+    printf("multiplication(*) = %d", product);
+    printf("division(/) = %f", quotient);
+    printf("remainder(%) = %d", modulo);
 
     
     return 0;
 }
+
+
+=======================================
+problem 5.
+=======================================
+
+
+
+
+
+
+
+
