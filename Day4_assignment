@@ -130,13 +130,56 @@ int main(int argc, const char * argv[]) {
 
 
 =======================================
-problem 5.
+problem 5-1.
 =======================================
 
+#include <stdio.h>
+ 
+int main()
+{
+    
+    int i, j, k;
+    
+    printf("Enter number between 5, 10: \n");
+    scanf("%d", &i);
+    
+    for( j = 1; j <= i; j++ )
+    {
+       for( k = 1; k <= j; k++ )
+         printf("*");
+    
+       printf("\n");
+    }
+    
+    return 0;
+}
 
+=======================================
+problem 5-1(2).
+=======================================
 
+#include <stdio.h>
+ 
+int main()
+{
+    
+    int num;
+    int min = 5;
+    int max = 10;
+    
+    for(num=min+1; num<=min; num++)
+    {
+        for(min=1; min <= max; min++)
+        printf("*", &num);
+    
+        printf("\n");
+    }
+    return 0;
+}
 
-
+=======================================
+problem 5-2.
+=======================================
 
 
 
