@@ -7,7 +7,6 @@
 //
 
 #include <stdio.h>
-
 void printArray(int array[]);
 int sumArray(int array[]);
 float averageArray(int array[]);
@@ -17,34 +16,37 @@ int smallestArray(int array[]);
 void showMenu(void);
 void showMenuOptions(void);
 
-//start main
+//Start main
 int main(int argc, const char * argv[]) {
-
-    int array[5];
-    
-    for(int i=0; i<5; i++){
-        printf("Enter the %d number: \n", i+1);
-        scanf("%d", &array[i]);
-    }
-    printArray(array);
-    int result = sumArray(array);
-    printf("sum=%d\n", result);
-    averageArray(array);
-    
-    int biggest = biggestArray(array);
-    printf("Biggest number=%d\n", biggest);
-    
-    int smallest = smallestArray(array);
-    printf("Smallest number=%d\n", smallest);
+   
+//    int array[5];
+//    
+//    for(int i=0; i<5;i++){
+//        printf("Please enter the %d number:\n", i+1);
+//        scanf("%d", &array[i]);
+//        
+//    }
+//    printArray(array);
+//    int result = sumArray(array);
+//    printf("sum=%d\n",result);
+//    
+//    averageArray(array);
+//    int biggest = biggestArray(array);
+//    printf("Biggest number=%d\n",biggest);
+//
+//    
+//    int smallest = smallestArray(array);
+//    printf("Smallest number=%d\n",smallest);
     
     showMenu();
-    
     return 0;
 }
+
 
 //start functions
 void printArray(int array[])
 {
+    
     for(int i=0; i<5; i++)
     {
         printf("%d\n", array[i]);
@@ -55,40 +57,38 @@ int sumArray(int array[]){
     
     int sum = 0;
     
-    for(int i=0; i<5; i++)
-    {
+    for(int i = 0;i < 5;i++){
         sum = sum + array[i];
     }
+    
+    printf("The sum is: %d\n", sum);
     return sum;
 }
 
 float averageArray(int array[]){
-
     float average;
     
     average = sumArray(array)/5;
-    printf("the average between the array numbers is %f\n", average);
-    
+    printf("The average between the array numbers is %f\n", average);
+ 
     return average;
 }
 
-
 int biggestArray(int array[]){
-    
     int biggest = array[0];
-    
-    for(int i=0; i<5; i++){
+    for(int i = 0; i < 5; i++){
         if(array[i] > biggest){
             biggest = array[i];
         }
     }
+    
+    printf("The biggest is: %d\n", biggest);
     return biggest;
 }
 
-
-int smallesrArray(int array[]){
+int smallestArray(int array[]){
     int smallest = array[0];
-    for(int i=0; i<5; i++){
+    for(int i = 0; i < 5; i++){
         if(array[i] < smallest){
             smallest = array[i];
         }
@@ -99,31 +99,21 @@ int smallesrArray(int array[]){
 }
 
 
-
 void showMenu(void)
 {
     int array[5] = {30, 40, 20, 10, 50};
+
+    showMenuOptions();
     
-    showMenuOption();
-    
-//    printf("Printing the array [press 'p']\n");
-//    printf("Printing the sum of all numbers in the array [press ‘c’]\n");
-//    printf("Printing the average of the numbers in the array [press ‘v’]");
-//    printf("Printing the minimum number in the array [press ‘m’]");
-//    printf("Printing the maximum number in the array [press ‘x’]");
-//    printf("Exit and terminate [press ‘q’]");
-//    printf("Enter a new array [press ‘n’](with the same length)");
-//    
-//    printF("\n==========================\n");
     char input = '*';
     
     scanf("%c", &input);
     
-    while(input!='q'){
+    while (input!='q') {
         
         if(input=='p')
         {
-            printfArray(array);
+            printArray(array);
         }
         else if(input=='c')
         {
@@ -143,12 +133,33 @@ void showMenu(void)
         }
         else if(input=='n')
         {
-            for(int i=0; i<5; i++){
+            for(int i=0; i<5;i++){
                 printf("\nPlease enter the %d number:\n", i+1);
+                scanf("%d", &array[i]);
+            }
         }
-    
-    }
-        printf("\n****************************\n");
         
-        showMenuOption
+        printf("\n*********************************************\n");
+        
+        showMenuOptions();
+        scanf("%c", &input);
+        
+    }//end of while
+}
+
+void showMenuOptions(void)
+{
+    printf("\n==============================\n");
+    printf("Please select one option");
+    printf("\n==============================\n");
+    
+    printf("Printing the array [press 'p']\n");
+    printf("Printing the sum of all numbers in the array [press ‘c’]\n");
+    printf("Printing the average of the numbers in the array [press ‘v’]\n");
+    printf("Printing the minimum number in the array [press ‘m’]\n");
+    printf("Printing the maximum number in the array [press ‘x’]\n");
+    printf("Exit and terminate [press ‘q’]\n");
+    printf("Enter a new array [press ‘n’](with the same length)\n");
+    
+    printf("\n==============================\n");
 }
