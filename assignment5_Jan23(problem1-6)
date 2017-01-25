@@ -100,8 +100,13 @@ void reverseLoop(int a[], int begin, int end)
 
 
 
-
-
+//
+//  main.c
+//  assignment_Jan23
+//
+//  Created by HannahPark on 2017-01-23.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
 
 #include <stdio.h>
 
