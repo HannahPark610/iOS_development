@@ -1,105 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-
-int printArray(int array[]);
-int readArray(char array[]);
-void reverseRecursive(int a[], int begin, int end);
-
-//**main
-int main(int argc, const char * argv[]){
-    
-//    int array[5];
-//    printf("Please enter 5 number:\n");
-//    for(int i=0; i<5; i++)
-//    {
-//        printf("array[%d]=",i);
-//        scanf("%d",&array[i]);
-//    }
-//    printArray(array);
-//    
-    
-    
-//    char name[100];
-//    int i;
-//    
-//    printf("Enter your word: \n");
-//    scanf("%s", name);
-//    for(i=0; name[i]!=0; i++)
-//    
-//    printf("Your word length are : %d\n", i);
-    
-    int a[7] = {1,2,3,4,5,6,7};
-    reverseRecursive(a,0,6);
-    for(int i=0; i<7; i++);
-    
-    return 0;
-}
-
-
-//**function
-//int printArray(int array[])
-//{
-//    printf("This is function!\n");
-//    for(int i=0; i<5; i++)
-//    {
-//        printf("print out array[%d]=%d\n",i,array[i]);
-//    }
-//    
-//    return 0;
-//}
-
-
-void swap(int array[], int a, int b)
-{
-    int temp = array[a];
-    array[a] = array[b];
-    array[b] = temp;
-}
-
-void reverseRecursive(int a[], int begin, int end)
-{
-    
-    if ( begin < end )
-    {
-        swap(a, begin, end);
-        reverseRecursive(a, begin+1, end-1);
-    }
-}
-
-void reverseLoop(int a[], int begin, int end)
-{
-    for(int i = begin; i<(begin+end)/2; ++i)
-    {
-        swap(a,i,end-i);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //
 //  main.c
 //  assignment_Jan23
@@ -108,15 +6,102 @@ void reverseLoop(int a[], int begin, int end)
 //  Copyright © 2017 HannahPark. All rights reserved.
 //
 
+// #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+// #include <string.h>
+#include <float.h>
 
-int main(int argc, const char * argv[])
-{
-    int numArr[5]={11, 22, 33, 44, 55};
+// int numArr();
+// char copyArr();
+
+// int main(int argc, const char * argv[])
+// {
     
-    printf("%d\n", numArr[0]);
-    printf("%d\n", numArr[1]);
-    printf("%d\n", numArr[4]);
+    
+// 	return 0;
+// }
 
-	return 0;
-}
+ /**Problem1.2**/
+// int numArr()
+// {
+//     int numArr[5]={11, 22, 33, 44, 55};
+    
+//     for(int i=0; i<sizeof(numArr)/sizeof(int); i++)
+//     {
+//         printf("%d\n", numArr[i]);
+//     }
+//     printf("\n");
+    
+//     for(int i = sizeof(numArr)/sizeof(int)-1; i>=0; i--)
+//     {
+//         printf("%d\n", numArr[i]);
+//     }
+
+// }
+
+
+ /**Problem3.**/
+// char copyArr()
+// {
+//     char d1[5]={11, 22, 33, 44, 55};
+//     char d2[5];
+    
+//     strcpy(d2, d1);
+    
+//     printf("%d\n",d2);
+// }
+ 
+ 
+ /**Problem4.**/
+ 
+// int main() 
+// {
+//     int array[100], minimum, size, c, location = 1;
+ 
+//     printf("Enter the number of elements in array\n");
+//     scanf("%d",&size);
+ 
+//     printf("Enter %d integers\n", size);
+ 
+//     for ( c = 0 ; c < size ; c++ )
+//         scanf("%d", &array[c]);
+ 
+//     minimum = array[0];
+ 
+//     for ( c = 1 ; c < size ; c++ ) 
+//     {
+//         if ( array[c] < minimum ) 
+//         {
+//           minimum = array[c];
+//           location = c+1;
+//         }
+//     } 
+ 
+//     printf("Minimum element is present at location %d and it's value is %d.\n", location, minimum);
+//     return 0;
+// }
+
+
+ /**Problem5.**/
+ 
+// void swapElement(int arr[], int first, int second) 
+// {
+//     int temp;
+
+//     temp = arr[first];
+//     arr[first] = arr[second];
+//     arr[second] = temp;
+// }
+
+// int main()
+// {
+//     int numArr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+//     swapElement(numArr, 0, 1);   
+
+//     printf("%d %d\n", numArr[0], numArr[1]);
+//     return 0;
+// }
+
+
+ /**Problem6.**/
