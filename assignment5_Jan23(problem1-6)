@@ -1,27 +1,75 @@
 #include <stdio.h>
+#include <string.h>
 
-void printArray(int array[])
+int printArray(int array[]);
+int readArray(char array[]);
+void reverseRecursive(int a[], int begin, int end);
+
+//**main
+int main(int argc, const char * argv[]){
+    
+//    int array[5];
+//    printf("Please enter 5 number:\n");
+//    for(int i=0; i<5; i++)
+//    {
+//        printf("array[%d]=",i);
+//        scanf("%d",&array[i]);
+//    }
+//    printArray(array);
+//    
+    
+    
+//    char name[100];
+//    int i;
+//    
+//    printf("Enter your word: \n");
+//    scanf("%s", name);
+//    for(i=0; name[i]!=0; i++)
+//    
+//    printf("Your word length are : %d\n", i);
+    
+    int a[7] = {1,2,3,4,5,6,7};
+    reverseRecursive(a,0,6);
+    for(int i=0; i<7; i++);
+    
+    return 0;
+}
+
+
+//**function
+//int printArray(int array[])
+//{
+//    printf("This is function!\n");
+//    for(int i=0; i<5; i++)
+//    {
+//        printf("print out array[%d]=%d\n",i,array[i]);
+//    }
+//    
+//    return 0;
+//}
+
+
+void swap(int array[], int a, int b)
+{
+    int temp = array[a];
+    array[a] = array[b];
+    array[b] = temp;
+}
+
+void reverseRecursive(int a[], int begin, int end)
 {
     
-    for(int i=0; i<5; i++)
+    if ( begin < end )
     {
-        printf("%d\n", array[i]);
+        swap(a, begin, end);
+        reverseRecursive(a, begin+1, end-1);
     }
-    
-return 0;
-    
-} 
+}
 
-
-// int main()
-// {
-//     char a[10],c;
-//     int i=0;
-//     while((c=getchar())!='\n')
-//     {
-//         scanf("%c",&a[i++]);
-//         c=getchar();
-//      }
-//      for(i=0;i<11;i++)
-//          printf("%c",a[i]);
-// }
+void reverseLoop(int a[], int begin, int end)
+{
+    for(int i = begin; i<(begin+end)/2; ++i)
+    {
+        swap(a,i,end-i);
+    }
+}
