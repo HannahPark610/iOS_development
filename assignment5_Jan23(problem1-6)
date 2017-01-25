@@ -73,3 +73,45 @@ void reverseLoop(int a[], int begin, int end)
         swap(a,i,end-i);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stdio.h>
+
+int main(int argc, const char * argv[])
+{
+    int numArr[5]={11, 22, 33, 44, 55};
+    
+    printf("%d\n", numArr[0]);
+    printf("%d\n", numArr[1]);
+    printf("%d\n", numArr[4]);
+
+	return 0;
+}
