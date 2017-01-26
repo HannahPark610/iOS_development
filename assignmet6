@@ -1,0 +1,46 @@
+//
+//  main.c
+//  Jan25_pointer
+//
+//  Created by HannahPark on 2017-01-25.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+//#include <stdio.h>
+//
+//int main(int argc, const char * argv[])
+//{
+//    
+//    int numbers[4]={10,20,30,40};
+//    
+//    printf("%p\n", (&numbers[2]));
+//    
+//    
+//    printf("%p\n",numbers);
+//    printf("%p\n",&numbers[0]);
+//    
+//    printf("%d\n", *numbers+10);
+//    printf("%d\n", **(&numbers)+10);
+//    
+//    
+//    return 0;
+//}
+
+
+#include <stdio.h>
+
+int main()
+{
+    int num1;
+    char num2;
+    long num3;
+    float num4;
+    
+    num1 = 0;
+    num2 = 'i';
+    num3 = 12345;
+    num4 = 0.14;
+    
+    
+    
+}
