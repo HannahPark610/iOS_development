@@ -135,3 +135,148 @@ int main () {
 
    return 0;
 }
+
+
+
+
+
+
+---------------------------------------------------------------------------------------
+
+
+
+
+
+//
+//  main.c
+//  assignment_Jan23
+//
+//  Created by HannahPark on 2017-01-23.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+// #define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+// #include <string.h>
+#include <float.h>
+//#include <time.h>
+
+
+// int numArr();
+// int copyArr();
+//
+// int main(int argc, const char * argv[])
+// {
+//     copyArr();
+//
+// 	return 0;
+// }
+
+/**Problem1.2**/
+
+
+//int main(int argc, const char * argv[])
+//{
+//
+//     int numArr[5]={11, 22, 33, 44, 55};
+//
+//     for(int i=0; i<sizeof(numArr)/sizeof(int); i++)
+//     {
+//         printf("%d\n", numArr[i]);
+//     }
+//     printf("\n");
+//
+//     for(int i = sizeof(numArr)/sizeof(int)-1; i>=0; i--)
+//     {
+//         printf("%d\n", numArr[i]);
+//     }
+//    
+//return 0;
+//}
+
+
+
+/**Problem3.**/
+// int copyArr()
+// {
+//     int d1[5]={11, 22, 33, 44, 55};
+//     int d2[5];
+//
+//     //strcpy(d2, d1);
+//     for(int i=0; i<5; i++){
+//         d2[i] = d1[i];
+//         printf("%d\n", d2[i]);
+//     }
+//
+//     //printf("%d\n",d2);
+//     
+//     return 0;
+// }
+
+//
+//*Problem4.*
+
+int main()
+ {
+     float num1 = flo_min;
+     float num2 = flo_max;
+
+     
+     printf("%.40f %.2f\n", num1, num2);
+     
+     return 0;
+ }
+
+/**Problem5.**/
+
+// void swapElement(int arr[], int first, int second)
+// {
+//     int temp;
+//
+//     temp = arr[first];
+//     arr[first] = arr[second];
+//     arr[second] = temp;
+// }
+//
+// int main()
+// {
+//     int numArr[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+//
+//     swapElement(numArr, 0, 1);
+//
+//     printf("%d %d\n", numArr[0], numArr[1]);
+//     return 0;
+// }
+
+
+/**Problem6.**/
+
+//int getRandom( ) {
+//    
+//    static int r[10];
+//    int i;
+//    
+//    srand( (unsigned)time( NULL ) );
+//    
+//    for ( i = 0; i < 10; ++i) {
+//        r[i] = rand();
+//        printf( "r[%d] = %d\n", i, r[i]);
+//    }
+//    
+//    return r;
+//}
+//
+//
+//int main () {
+//    
+//    int p;
+//    int i;
+//    
+//    p = getRandom();
+//    
+//    for ( i = 0; i < 10; i++ ) {
+//        printf( "(p + %d) : %d\n", i, (p + i));
+//    }
+//    
+//    return 0;
+//}
