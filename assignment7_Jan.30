@@ -1,0 +1,31 @@
+//
+//  main.c
+//  assignment7
+//
+//  Created by HannahPark on 2017-01-30.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#include <stdio.h>
+#include <string.h>
+
+struct fields
+{
+    int day[10];
+    char month;
+    float year;
+    
+    
+};
+
+
+int main(void) {
+    
+    struct fields dates = {0};
+    
+    dates.day = 1;
+    strcpy(dates.month, "January");
+    dates.year = 2016;
+    
+        return 0;
+}
