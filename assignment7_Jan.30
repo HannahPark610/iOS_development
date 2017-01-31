@@ -11,21 +11,25 @@
 
 struct fields
 {
-    int day[10];
-    char month;
+    char day[10];
+    int month;
     float year;
-    
     
 };
 
 
 int main(void) {
     
-    struct fields dates = {0};
+    char day;
+    struct fields dates = {"thirtieth", 1, 2016.0};
+    struct fields *ptr;
     
-    dates.day = 1;
-    strcpy(dates.month, "January");
-    dates.year = 2016;
+    ptr = &dates;
     
-        return 0;
+    printf("Dates of field: \n");
+    printf(" Day is: %s \n ", ptr->day);
+    printf(" Month is: %d \n ", ptr->month);
+    printf(" Year is: %f \n ", ptr->year);
+    
+    return 0;
 }
