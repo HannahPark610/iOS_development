@@ -7,40 +7,18 @@
 //
 
 #include <stdio.h>
-#include <string.h>
 
-struct date
+int main(void)
 {
-    int day[10];
-    int month;
-    int year;
+    int day = 10, month, year;
+    int* ptr;
     
-};
-
-struct machine
-{
-    int name;
-    char memory;
+    ptr = &day;
     
-};
-
-
-int main(void) {
-    
-    int day;
-    struct date dates = {30, 1, 2016};
-    struct date *ptr;
-    
-    ptr = &dates;
-    
-    printf("Dates of field: \n");
-    printf(" Day is: %d \n ", ptr->day);
-    printf(" Month is: %d \n ", ptr->month);
-    printf(" Year is: %d \n ", ptr->year);
-    
-    
-    struct memory* machine;
-    
+    printf("Record of date:\n");
+    printf("Day: %d\n", *ptr);
+    printf("Month: %d\n", *ptr);
+    printf("Year: %d\n", *ptr);
     
     return 0;
 }
