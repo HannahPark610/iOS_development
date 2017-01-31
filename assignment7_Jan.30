@@ -7,18 +7,36 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
+
+//1-1
+struct date
+{
+    int day, month, year;
+};
+
+//1-2
+struct machine
+{
+  int name;
+  char memory[]="mpu641";
+};
 
 int main(void)
 {
-    int day = 10, month, year;
+    //1-1
+    int day = 10;
     int* ptr;
-    
     ptr = &day;
     
     printf("Record of date:\n");
     printf("Day: %d\n", *ptr);
     printf("Month: %d\n", *ptr);
     printf("Year: %d\n", *ptr);
+    
+    //1-2
+    char* ptr;
+    ptr = &memory;
     
     return 0;
 }
