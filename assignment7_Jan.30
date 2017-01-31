@@ -9,27 +9,38 @@
 #include <stdio.h>
 #include <string.h>
 
-struct fields
+struct date
 {
-    char day[10];
+    int day[10];
     int month;
-    float year;
+    int year;
+    
+};
+
+struct machine
+{
+    int name;
+    char memory;
     
 };
 
 
 int main(void) {
     
-    char day;
-    struct fields dates = {"thirtieth", 1, 2016.0};
-    struct fields *ptr;
+    int day;
+    struct date dates = {30, 1, 2016};
+    struct date *ptr;
     
     ptr = &dates;
     
     printf("Dates of field: \n");
-    printf(" Day is: %s \n ", ptr->day);
+    printf(" Day is: %d \n ", ptr->day);
     printf(" Month is: %d \n ", ptr->month);
-    printf(" Year is: %f \n ", ptr->year);
+    printf(" Year is: %d \n ", ptr->year);
+    
+    
+    struct memory* machine;
+    
     
     return 0;
 }
