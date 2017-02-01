@@ -47,6 +47,85 @@ int main(void)
     return 0;
 }
 
+
+
+
+#include <stdio.h>
+#include <math.h>
+/** problem 2. **/
+
+struct point
+{
+    int x;
+    int y;
+};
+
+
+double distance(struct point p1, struct point p2);
+void printPoint (struct point p);
+double average(struct point points[], char coord);
+struct point averageVector(struct point points[]);
+
+void main(void)
+{
+    struct point p1 = {5, 0};
+    struct point p2 = {10, -5};
+    double dist = distance(p1, p2);
+    printf("distance is %f\n", dist);
+    
+    printPoint(p1);
+    struct point points[] ={{1,2},{3,4},{5,6}};
+    double aver = average(points,'x');
+    printf("averge is %f\n", aver);
+    
+    
+    struct point avePoint = averageVector(points);
+    printPoint(avePoint);
+}
+
+double distance (struct point p1, struct point p2)
+{
+    double result = ((p1.x-p2.x)*(p1.x-p2.x))+((p1.y-p1.y)*(p1.y-p2.y));
+    double distance = sqrt(result);
+    return distance;
+}
+
+void printPoint (struct point p)
+{
+    printf("\n the X coordination is %d and Y coordination is %d\n", p.x, p.y);
+}
+
+double average(struct point points[], char coord)
+{
+    int sum = 0, counter = 0;
+    for(int i=0; i<5; i++)
+    {
+        if(coord == 'X')
+        {
+            sum = sum + points[i].x;
+            counter++;
+        }
+        else
+        {
+            sum = sum + points[i].y;
+        }
+        counter++;
+    }
+    double ave = sum / counter;
+    return ave;
+}
+
+struct point averageVector(struct point points[])
+{
+    double averagex = average(points, 'x');
+    double averagey = average(points, 'y');
+    struct point avePoint = {averagex, averagey};
+    return avePoint;
+}
+
+
+
+
 4-1. b  
 4-2. b   
 4-3. a   
