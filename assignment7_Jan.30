@@ -7,7 +7,7 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>
 
 //1-1
 struct date
@@ -19,7 +19,7 @@ struct date
 struct machine
 {
   int name;
-  char memory[]="mpu641";
+  char memory[];
 };
 
 int main(void)
@@ -35,8 +35,14 @@ int main(void)
     printf("Year: %d\n", *ptr);
     
     //1-2
+    int name = 10;
+    machine.memory = "mpu641";
     char* ptr;
     ptr = &memory;
+    
+    printf("Record of machine:\n");
+    printf("Name: %d\n", *ptr);
+    printf("Memory: %c\n", *ptr);
     
     return 0;
 }
