@@ -1,0 +1,77 @@
+#include <stdio.h>
+
+void menu(fr * friends, int *counter, int user_entry, int i);
+void setFirst(fr *, int *, int i);
+char getFirst(fr *, int i);
+void add_contact(fr * friends, int *counter, int i);
+void print_contact(fr * friends, int *counter, int i);
+
+int main()
+{
+
+    int user_entry = 0;
+    fr *friends;
+    int counter = 0;
+    int i = 0;
+    menu(friends, &counter, user_entry, i);
+    getch();
+    return 0;
+}
+
+//Menu function
+void menu(fr * friends, int *counter, int user_entry, int i)
+{
+    do {
+        int result;
+
+        printf("\nPhone Book Application\n");
+        printf
+            ("1) Add friend\n2) Delete friend\n3) Show a friend\n4)Showphonebook\n5)Exit\n");
+        scanf("%d", &user_entry);
+
+        if (user_entry == 1) {
+            add_contact(friends, counter, i);
+        }
+        if (user_entry == 2) {
+
+        }
+        if (user_entry == 3) {
+
+        }
+        if (user_entry == 4) {
+            print_contact(friends, counter, i);
+        }
+    } while (user_entry != 5);
+}
+
+void setFirst(fr * friends, int *counter, int i)
+{
+    // THE MALLOC FUNCTION!
+    friends = (fr *) malloc(BUFFER * sizeof(fr));
+    printf("Enter a first name \n");
+    scanf("%s", friends[*counter].First_Name);
+    if (friends != NULL) {
+
+        free(friends);
+    }
+}
+
+char getFirst(fr * friends, int pos)
+{
+    printf("%s ", friends[pos].First_Name);
+    return *friends[pos].First_Name;
+}
+
+void add_contact(fr * friends, int *counter, int i)
+{
+    setFirst(friends, counter, i);
+    (*counter)++;
+}
+
+void print_contact(fr * friends, int *counter, int i)
+{
+    for (i = 0; i < *counter; i++)
+        if (strlen(friends[i].First_Name)) {
+            getFirst(friends, i);
+        }
+}
