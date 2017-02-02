@@ -1,29 +1,69 @@
+//
+//  main.c
+//  assigment8
+//
+//  Created by HannahPark on 2017-02-01.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+
+-------------------------------
+problem1.
+-------------------------------
+
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int main()
 {
     int i, num;
     float *data;
     
-    printf("Enter the total number 1 to 50: \n");
+    printf("Enter the total number 1 to 50: ");
     scanf("%d", &num);
     
-    // Stores the number entered by the user.
-    for(i = 1; i < num; ++i)
+    // Allocates the memory for 'num' elements.
+    data = (float*) calloc(num, sizeof(float));
+    
+    if(data == NULL)
     {
-       printf("Enter Number %d: ", i + 1);
-       scanf("%f", data + i);
+        printf("Error!!! memory not allocated.");
+        exit(0);
     }
     
-    //Allocates the memory for 'num' element
-    data =  (float *) malloc(sizeof(float));
-     
+    // Stores the number entered by the user.
+    for(i = 0; i < num; ++i)
+    {
+        printf("Enter Number %d: ", i + 1);
+        scanf("%f", data + i);
+        
+        if(0 >= *data)
+        {
+        printf("Error!!It's '0' or 'Positive number'\n");
+        break;
+        }
+    }
+
     // Loop to store largest number at address data
     for(i = 1; i < num; ++i)
     {
-        printf("Largest element = %.2f", *data);
+        // Change < to > if you want to find the smallest number
+        if(*data < *(data + i))
+             *data = *(data + i);
     }
+    printf("Largest element = %.2f \n", *data);
+    
     return 0;
 }
 
+
+-------------------------------
+problem2.
+-------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  
