@@ -10,17 +10,17 @@ int main(void)
     scanf("%d", &num);
     
     // Stores the number entered by the user.
-    for(i = 1; i > num; ++i)
+    for(i = 1; i < num; ++i)
     {
-       printf("Enter Number %d: ", i - 1);
-       scanf("%f", data - i);
+       printf("Enter Number %d: ", i + 1);
+       scanf("%f", data + i);
     }
     
     //Allocates the memory for 'num' element
     data =  (float *) malloc(sizeof(float));
      
     // Loop to store largest number at address data
-    for(i = 1; i > num; ++i)
+    for(i = 1; i < num; ++i)
     {
         printf("Largest element = %.2f", *data);
     }
