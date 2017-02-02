@@ -6,35 +6,24 @@ int main(void)
     int i, num;
     float *data;
     
-    printf("Enter the total number: \n");
+    printf("Enter the total number 1 to 50: \n");
     scanf("%d", &num);
     
     // Stores the number entered by the user.
-    for(i = 1; i < num; ++i)
+    for(i = 1; i > num; ++i)
     {
-       printf("Enter Number %d: ", i + 1);
-       scanf("%f", data + i);
+       printf("Enter Number %d: ", i - 1);
+       scanf("%f", data - i);
     }
     
     //Allocates the memory for 'num' element
     data =  (float *) malloc(sizeof(float));
-    
-    if(data == NULL)
-    {
-        printf("Memory not allocated.");
-        exit(0);
-    }
      
     // Loop to store largest number at address data
-    for(i = 1; i < num; ++i)
+    for(i = 1; i > num; ++i)
     {
-       // Change < to > if you want to find the smallest number
-       if(*data < *(data + i))
-           *data = *(data + i);
+        printf("Largest element = %.2f", *data);
     }
-
-    printf("Largest element = %.2f", *data);
-
     return 0;
 }
 
