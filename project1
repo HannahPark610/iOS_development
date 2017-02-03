@@ -1,80 +1,101 @@
+//
+//  main.c
+//  group project1
+//
+//  Created by HannahPark on 2017-02-01.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <string.h>
+//
+//struct student
+//{
+//    char username[100];
+//    int password;
+//    char firstName[100];
+//    char lastName[100];
+//    char gender[100];
+//    int grade;
+//    char courseId[100];
+//    int mark;
+//    char address[100];
+//    int admission;
+//}*ptr[100];
+//
+//struct student *allocStudent()
+//{
+//    struct student *p = malloc(sizeof(struct student));
+//    
+//    strcpy(p->username, "Hannah");
+//    p->password = 1122;
+//    
+//    return p;
+//}
+//
+//int main()
+//{
+//    struct student *p1;
+//    
+//    p1 = allocStudent();
+//    
+//    int i;
+//
+//    printf("************************************************************\nPlease enter your account to login:\n************************************************************");
+//    for(i=0; i<=8; i++)
+//    {
+//        ptr[i] = (struct student *) malloc(sizeof(struct student));
+//
+//        printf("\nUsername : ");
+//        scanf("%s", &ptr[i] -> username);
+//        printf("\nPassword : ");
+//        scanf("%d", &ptr[i] -> password);
+//    }
+//
+//    for(i=0; i<=8; i++)
+//    {
+//        printf("\nUsername : %s",ptr[i]->username);
+//        printf("\nPassword : %d",ptr[i]->password);
+//    }
+//    
+//    return 0;
+//}
+//
+
 #include <stdio.h>
-
-typedef struct student1
-{
-    char userName[50];
-    char passWord[10];
-    int studentId;
-    char firstName[20];
-    char lastName[20];
-    char gender[5];
-    int grade;
-    char courseId[50];
-    int mark;
-    char address[100];
-    int admission;
-}student1;
-
-student1 = {"user1", "password1"};
+#include <string.h>
 
 int main()
 {
-	printf("\nusername : %s",student1.userName);
-    printf("\npassword : %s",student1.passWord);
-	return 0;
-}
-
-
-
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------------
-
-#include <stdio.h>
-
-struct student1
-{
-    char username[10];
-    int password;
-    
-}*ptr[10];
-
-int main()
-{
-    int i;
-    
-    printf("************************************************************\nPlease enter your account to login:\n************************************************************");
-    for(i=0;i<3;i++)
+    char userid[8][6]={"user1","user2","user3","user4","user5","user6","user7","user8"};
+    char password[8][10]={"password1","password2","password3","password4","password5","password6","password7","password8"};
+    char u[8][6];
+    char p[8][10];
+    int n=1,a,b;
+    printf("\nEnter USER ID and PASSWORD below (You have only three chances to enter)");
+    while(n<=3)
     {
-        ptr[i] = (struct student1 *) malloc(sizeof(struct student1));
         
-        printf("\nUsername : ");
-        scanf("%s",&ptr[i]->username);
-        printf("\nPassword : ");
-        scanf("%d",&ptr[i]->password);
+        printf("\nUSER ID: ");
+        scanf("%s",u);
+        printf("\nPASSWORD: ");
+        scanf("%s",p);
+        
+        a=strcmp(u,userid);
+        b=strcmp(p,password);
+        
+        if(a==0 && b==0)
+        {
+            printf("\nYou have logged in successfully.\n");
+            break;
+        }
+        else
+        {
+            printf("\nWrong PASSWORD and/or USER ID. Now you have % d more chance/s.",3-n);
+        }
+        n++;
     }
-    
-    for(i=0;i<3;i++)
-    {
-        printf("\nUsername : %s",ptr[i]->username);
-        printf("\nPassword : %d",ptr[i]->password);
-    }
-    
-    return(0);
-}
-
-
----------------------------------------------------------
-
-int main()
-{
-    struct student *p1;
-    
-    p1 = allocStudent();    // 반환된 구조체 변수의 내용이 p1로 모두 복사됨
-
-    printf("************************************************************\nPlease enter your account to login:\n************************************************************");
-    printf("\nUsername: %s", p1->username);
-    printf("\nPassword: %d\n", p1->password);
-    
-    return 0;
+    if(n==4)
+        printf("\nYou can't log in.\n");
 }
