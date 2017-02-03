@@ -62,3 +62,19 @@ int main()
     
     return(0);
 }
+
+
+---------------------------------------------------------
+
+int main()
+{
+    struct student *p1;
+    
+    p1 = allocStudent();    // 반환된 구조체 변수의 내용이 p1로 모두 복사됨
+
+    printf("************************************************************\nPlease enter your account to login:\n************************************************************");
+    printf("\nUsername: %s", p1->username);
+    printf("\nPassword: %d\n", p1->password);
+    
+    return 0;
+}
