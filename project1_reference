@@ -1,1 +1,55 @@
-ssss
+//
+//  main.c
+//  group project1
+//
+//  Created by HannahPark on 2017-02-01.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#include <stdio.h>
+#include <string.h>
+#define NAME_LEN 20
+#define TEL_LEN 20
+#define BIRTH_LEN 20
+#define PERSON_NUM 20
+#define BUF_SIZE 20
+
+typedef struct
+{
+    char name [NAME_LEN];
+    char tel [TEL_LEN];
+    char birth [BIRTH_LEN];
+}person;
+
+int main()
+{
+int count = 0, i, len;
+char n, tmp[20];
+person list [PERSON_NUM];
+
+printf("Enter Your Name:\n");
+fgets(tmp, NAME_LEN, stdin);
+len = strlen(tmp);
+if(tmp[len-1] == '\n')
+    tmp[len-1] = '\0';
+
+strcpy(list[count].name, tmp);
+    
+printf("Enter Your Phonenumber:\n");
+fgets(tmp, TEL_LEN, stdin);
+len = strlen(tmp);
+if(tmp[len-1] == '\n')
+    tmp[len-1] = '\0';
+    
+strcpy(list[count].tel, tmp);
+
+printf("Enter Your Bithday:\n");
+fgets(tmp, BIRTH_LEN, stdin);
+len = strlen(tmp);
+if(tmp[len-1] == '\n')
+    tmp[len-1] = '\0';
+    
+strcpy(list[count].birth, tmp);
+    
+    ++count;
+}
