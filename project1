@@ -23,3 +23,42 @@ int main()
     printf("\npassword : %s",student1.passWord);
 	return 0;
 }
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+struct student1
+{
+    char username[10];
+    int password;
+    
+}*ptr[10];
+
+int main()
+{
+    int i;
+    
+    printf("************************************************************\nPlease enter your account to login:\n************************************************************");
+    for(i=0;i<3;i++)
+    {
+        ptr[i] = (struct student1 *) malloc(sizeof(struct student1));
+        
+        printf("\nUsername : ");
+        scanf("%s",&ptr[i]->username);
+        printf("\nPassword : ");
+        scanf("%d",&ptr[i]->password);
+    }
+    
+    for(i=0;i<3;i++)
+    {
+        printf("\nUsername : %s",ptr[i]->username);
+        printf("\nPassword : %d",ptr[i]->password);
+    }
+    
+    return(0);
+}
