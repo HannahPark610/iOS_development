@@ -1,222 +1,56 @@
-//
-//  main.c
-//  group project1
-//
-//  Created by HannahPark on 2017-02-01.
-//  Copyright © 2017 HannahPark. All rights reserved.
-//
-
-//#define _CRT_SECURE_NO_WARNINGS
-//#include <stdio.h>
-//#include <string.h>
-//
-//struct student
-//{
-//    char username[100];
-//    int password;
-//    char firstName[100];
-//    char lastName[100];
-//    char gender[100];
-//    int grade;
-//    char courseId[100];
-//    int mark;
-//    char address[100];
-//    int admission;
-//}*ptr[100];
-//
-//struct student *allocStudent()
-//{
-//    struct student *p = malloc(sizeof(struct student));
-//    
-//    strcpy(p->username, "Hannah");
-//    p->password = 1122;
-//    
-//    return p;
-//}
-//
-//int main()
-//{
-//    struct student *p1;
-//    
-//    p1 = allocStudent();
-//    
-//    int i;
-//
-//    printf("************************************************************\nPlease enter your account to login:\n************************************************************");
-//    for(i=0; i<=8; i++)
-//    {
-//        ptr[i] = (struct student *) malloc(sizeof(struct student));
-//
-//        printf("\nUsername : ");
-//        scanf("%s", &ptr[i] -> username);
-//        printf("\nPassword : ");
-//        scanf("%d", &ptr[i] -> password);
-//    }
-//
-//    for(i=0; i<=8; i++)
-//    {
-//        printf("\nUsername : %s",ptr[i]->username);
-//        printf("\nPassword : %d",ptr[i]->password);
-//    }
-//    
-//    return 0;
-//}
-//
-
+#define _GNU_SOURCE
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
-int main()
+//char* substring(char* info, int startIndex, int endIndex);
+void main()
 {
-    char userid[8][6]={"user1","user2","user3","user4","user5","user6","user7","user8"};
-    char password[8][10]={"password1","password2","password3","password4","password5","password6","password7","password8"};
-    char u[8][6];
-    char p[8][10];
-    int n=1,a,b;
-    printf("\nEnter USER ID and PASSWORD below (You have only three chances to enter)");
-    while(n<=3)
-    {
-        
-        printf("\nUSER ID: ");
-        scanf("%s",u);
-        printf("\nPASSWORD: ");
-        scanf("%s",p);
-        
-        a=strcmp(u,userid);
-        b=strcmp(p,password);
-        
-        if(a==0 && b==0)
-        {
-            printf("\nYou have logged in successfully.\n");
-            break;
-        }
-        else
-        {
-            printf("\nWrong PASSWORD and/or USER ID. Now you have % d more chance/s.",3-n);
-        }
-        n++;
-    }
-    if(n==4)
-        printf("\nYou can't log in.\n");
-}
-
------------------------------------------------------------------------------------------------------
-//#define _GNU_SOURCE
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-//int main(void)
-//{
-//    FILE * fp;
-//    char * line = NULL;
-//    size_t len = 0;
-//    ssize_t read;
-//    
-//    fp = fopen("/Users/HannahPark/Desktop/HelloWorld/group project1/group project1/main.c", "r");
-//    if (fp == NULL)
-//        exit(EXIT_FAILURE);
-//    
-//    while ((read = getline(&line, &len, fp)) != -1) {
-//        printf("Retrieved line of length %zu :\n", read);
-//        printf("%s", line);
+    FILE *fp;
+    char studentDataStrings[80];
+//    char *result;
+    fp = fopen("\\Users\\박현영\\Desktop\\project1\\Accounts.txt", "r");
+//    if (!fp){
+//        return 1;
 //    }
-//    
+    
+	while (!feof(fp)) {
+		fgets(studentDataStrings, 80, fp);
+		puts(studentDataStrings);
+
+//    while (fgets(studentDataStrings,80, fp)!=NULL){
+//        printf("%s",studentDataStrings);
+    }
+//    printf("\n\n");
+//    result = substring(studentDataStrings,8,17);
+//    printf("[result] %s",result);
+//    printf("\n\n");
 //    fclose(fp);
-//    if (line)
-//        free(line);
-//    exit(EXIT_SUCCESS);
-//}
-//-----------------------------------------------------------------------------
-
-//#include <stdio.h>
-//#include <string.h>
-//
-//struct students
-//{
-//    char username[50];
-//    char password[50];
-//    int  student_id;
-//};
-//
-//void printstudent( struct students *student );
-//
-//int main( ) {
-//    
-//    struct students student1;
-//    struct students student2;
-//    
-//    /* student 1 specification */
-//    strcpy( student1.username, "user1");
-//    strcpy( student1.password, "password1");
-//    student1.student_id = 6495407;
-//    
-//    /* student 2 specification */
-//    strcpy( student2.username, "user2");
-//    strcpy( student2.password, "password2");
-//    student2.student_id = 6495700;
-//    
-//    /* print student1 info by passing address of student1 */
-//    printstudent( &student1 );
-//    
-//    /* print student1 info by passing address of student2 */
-//    printstudent( &student2 );
-//    
-//    return 0;
-//}
-//
-//void printstudent( struct students *student )
-//{
-//    printf("************************************************************\nPlease enter your account to login:\n************************************************************\n");
-//    
-//    printf("\nUserid : ");
-//    scanf("%s", student->username);
-//    printf("\nPassword : ");
-//    scanf("%s", student->password);
-//    
-//    int a, b;
-//    
-//    if(a==0 && b==0)
-//    {
-//       a = strcmp (   ,username);
-//       b = strcmp (   ,password);
-//       printf("\nYou have logged in successfully.\n");
-//    }
-//    else
-//    {
-//       printf("\nYou can't log in.\n");
-//    }
-//
-//}
-
-
-
-#include "stdio.h"
-#include "stdlib.h"
-#include "string.h"
-
-char *substring(char *input, int i_begin, int i_end);
-
-int main()
-{
-    char str[12] = "12345678910";
-    char *strbuf = (char*)malloc( sizeof(str) / sizeof(str[0]) ); //할당
-    memset(strbuf, 0, sizeof(str) / sizeof(str[0]));  //초기화
-    
-    strbuf = substring(str, 3, 9); //3번째부터 ~9번째 까지 짜름.. 0based
-    printf("%s\n", strbuf);
+    fclose(fp);
 }
 
-char *substring(char *input, int i_begin, int i_end)
-{
-    int cnt = 0;
-    int size = (i_end - i_begin)+2;
-    char *str = (char*)malloc(size);
-    
-    memset(str, 0, size);
-    for(int i = i_begin; i <= i_end; i++)
-    {
-        str[cnt] = input[i];
-        cnt++;
-    }
-    return str;
-}
+////(e.g.)When you get "studentID:”7813007”\n" from Accounts.txt
+// char* substring(char* info, int startIndex, int endIndex)
+//    {                 //info is "studentID:”7813007”\n", startIndex is 13, endIndex is 20
+//    int counter = 0;
+//    int length = 0;
+//    
+//    while (counter<3) {//get a string of length //(e.g.)the strings is studentID:”7813007”
+//        if(info[length]=='\xe2')//then count before 2nd '\xe2' to get the length
+//        {
+//            counter++;
+//        }
+//        length++;
+//    }
+//    
+//    int count = 0;
+//    char* result = (char*) malloc(length * sizeof(char));// allocates memory of length
+//    int i;
+//    for(i = startIndex; i < endIndex; i++)
+//    {
+//        result[count] = info[i];//copy 7813007 from "studentID:”7813007”\n"
+//        
+//        count++;
+//    }
+////        printf("%s",result);
+//    return result;//return 7813007
+//}
