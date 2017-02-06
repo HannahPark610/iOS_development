@@ -1,94 +1,67 @@
-//
-//  main.c
-//  group project1
-//
-//  Created by HannahPark on 2017-02-01.
-//  Copyright © 2017 HannahPark. All rights reserved.
-//
-
-#include <stdio.h>
-#include <string.h>
-#define NAME_LEN 20
-#define TEL_LEN 20
-#define BIRTH_LEN 20
-#define PERSON_NUM 20
-#define BUF_SIZE 20
-
-typedef struct
-{
-    char name [NAME_LEN];
-    char tel [TEL_LEN];
-    char birth [BIRTH_LEN];
-}person;
-
-int main()
-{
-int count = 0, i, len;
-char n, tmp[20];
-person list [PERSON_NUM];
-
-printf("Enter Your Name:\n");
-fgets(tmp, NAME_LEN, stdin);
-len = strlen(tmp);
-if(tmp[len-1] == '\n')
-    tmp[len-1] = '\0';
-
-strcpy(list[count].name, tmp);
-    
-printf("Enter Your Phonenumber:\n");
-fgets(tmp, TEL_LEN, stdin);
-len = strlen(tmp);
-if(tmp[len-1] == '\n')
-    tmp[len-1] = '\0';
-    
-strcpy(list[count].tel, tmp);
-
-printf("Enter Your Bithday:\n");
-fgets(tmp, BIRTH_LEN, stdin);
-len = strlen(tmp);
-if(tmp[len-1] == '\n')
-    tmp[len-1] = '\0';
-    
-strcpy(list[count].birth, tmp);
-    
-    ++count;
-}
-
-
-
---------------------------------------------------------------------------------------
-
-#define _CRT_SECURE_NO_WARNINGS    // strcpy 보안 경고로 인한 컴파일 에러 방지
-#include <stdio.h>
-#include <string.h>    // strcpy 함수가 선언된 헤더 파일
-
-struct Person {
-    char name[20];
-    int age;
-    char address[100];
-};
-
-struct Person getPerson()    // Person 구조체를 반환하는 getPerson 함수 정의
-{
-    struct Person p;
-
-    strcpy(p.name, "홍길동");
-    p.age = 30;
-    strcpy(p.address, "서울시 용산구 한남동");
-
-    return p;    // 구조체 변수 반환
-}
-
-int main()
-{
-    struct Person p1;
-
-    p1 = getPerson();    // 반환된 구조체 변수의 내용이 p1로 모두 복사됨
-
-    // getPerson에서 저장한 값이 출력됨
-    printf("이름: %s\n", p1.name);       // 홍길동
-    printf("나이: %d\n", p1.age);        // 30
-    printf("주소: %s\n", p1.address);    // 서울시 용산구 한남동
-
-    return 0;
-}
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h> 
+#include <stdlib.h> 
+#include <string.h> 
+typedef struct login_info 
+{ 
+   char user[20]; 
+   char password[20]; 
+} LOGIN_INFO; 
+typedef struct save_info 
+{ 
+   char user[20]; 
+   char password[20]; 
+} SAVE_INFO; 
+int main() 
+{ 
+   FILE *fp = NULL;
+   LOGIN_INFO *info = { 0 }; 
+   SAVE_INFO *sinfo = { 0 }; 
+   LOGIN_INFO search; 
+   int usercnt; 
+   int inputcnt; 
+   int i; 
+   info = (LOGIN_INFO *)malloc(sizeof(LOGIN_INFO)*usercnt); // dynamic memory allocated 
+   for (i = 0; i < usercnt; i++) 
+   { 
+      printf("%Enter the Username, Password\n", i + 1); 
+      scanf_s("%s", &info[i].user, 20); 
+      scanf_s("%s", &info[i].password, 20); 
+   } 
+   fp = fopen("\\Users\\박현영\\Desktop\\project1\\Accounts.txt", "w"); // storage in .txt
+   fprintf(fp, "# of users: %d\n",usercnt); 
+   fprintf(fp, "ID\tPASSWD\n"); 
+   for (i = 0; i < usercnt; i++) 
+   { 
+      fprintf(fp, "%s\t%s\n", info[i].user, info[i].password); 
+   } 
+   fclose(fp); // closed .txt
+   fp = fopen("\\Users\\박현영\\Desktop\\project1\\Accounts.txt", "rt"); // open the .txt what had storaged 
+   if (fp == NULL) 
+   { 
+      printf("failed read file \n"); 
+   } 
+   fscanf(fp, "# of users: %d",&usercnt); 
+   fscanf(fp, "ID\tPASSWD"); 
+   sinfo = (SAVE_INFO *)malloc(sizeof(SAVE_INFO)*usercnt); // dynamic memory allocated
+   for (i = 0; i < usercnt; i++) 
+   { 
+      fscanf(fp,"%s %s", sinfo[i].user, 20, sinfo[i].password, 20); // storage information is entered the structure
+   } 
+   fclose(fp); // closed .txt 
+   printf("Enter the Username : "); 
+   scanf_s("%s", &search.user,20); 
+   printf("Enter the password : "); 
+   scanf_s("%s", &search.password, 20); 
+   for (i = 0; i < usercnt; i++) 
+   { 
+      if (strcmp(sinfo[i].user, search.user) == 0 && strcmp(sinfo[i].password, search.password) == 0) 
+      { 
+         printf("LOGIN OK!\n"); 
+      } 
+      else 
+      { 
+         printf("LOGIN FAILED!\n"); 
+      } 
+   } 
+} 
