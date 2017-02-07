@@ -1,40 +1,95 @@
 #define _GNU_SOURCE
+#define MAX 256
 #include <stdio.h>
 #include <stdlib.h>
 
-//char* substring(char* info, int startIndex, int endIndex);
-void main()
+//char* substring(char* info);
+//int main(){
+// char buf[MAX];
+// int len;
+// FILE *fp = fopen("\\Users\\¹ÚÇö¿µ\\Desktop\\project1\\Accounts.txt","rt");
+// 
+// while(1)
+// {
+//  fgets(buf,MAX,fp);
+//  len  = strlen(buf);
+//   if(len==0) break;
+//  printf("%s",buf);
+//  buf[0]= '\0';
+// }
+// fclose(fp);
+// return 0;
+//}
+// 
+
+char* substring(char* info);
+int main()
 {
     FILE *fp;
     char studentDataStrings[80];
-//    char *result;
-    fp = fopen("\\Users\\박현영\\Desktop\\project1\\Accounts.txt", "r");
-//    if (!fp){
-//        return 1;
-//    }
+    char *result;
+    fp = fopen("\\Users\\¹ÚÇö¿µ\\Desktop\\project1\\Accounts.txt", "r");
+    if (!fp)
+	{
+        return 1;
+    }
     
-	while (!feof(fp)) {
+	while (!feof(fp)) 
+	{
 		fgets(studentDataStrings, 80, fp);
 		puts(studentDataStrings);
 
-//    while (fgets(studentDataStrings,80, fp)!=NULL){
-//        printf("%s",studentDataStrings);
+    while (fgets(studentDataStrings,80, fp)!=NULL)
+	{
+        printf("%s",studentDataStrings);
     }
-//    printf("\n\n");
-//    result = substring(studentDataStrings,8,17);
-//    printf("[result] %s",result);
-//    printf("\n\n");
-//    fclose(fp);
+    printf("\n\n");
+    result = substring(studentDataStrings,8,17);
+    printf("[result] %s",result);
+    printf("\n\n");
     fclose(fp);
+    return 0;
 }
 
-////(e.g.)When you get "studentID:”7813007”\n" from Accounts.txt
+char* substring(char* info)//info is "studentID:¡±7813007¡±\n"
+{
+    int counter1 = 0;
+    int length1 = 0;
+    int counter2 = 0;
+    int length2 = 0;
+//    int endIndex = length
+    while (counter1<1) {//get a string of length before ID starts
+        if(info[length1]=='\x9d')//count till first '\x9d' to get the length
+        {
+            counter1++;
+        }
+        length1++;
+    }
+    while (counter2<2) {//get a string of length when ID is done
+        if(info[length2]=='\xe2')//then count before 2nd '\xe2' to get the length
+        {
+            counter2++;
+        }
+        length2++;
+    }
+    int count = 0;
+    int i;
+    char* result = (char*) malloc(length2 * sizeof(char));//allocates memory of length
+    for(i = length1; i < length2-1; i++)
+    {
+        result[count] = info[i];//copy 7813007 from "studentID:¡±7813007¡±\n"
+        count++;
+    }
+    return result;//return 7813007
+}
+
+////(e.g.)When you get "studentID:¡±7813007¡±\n" from Accounts.txt
 // char* substring(char* info, int startIndex, int endIndex)
-//    {                 //info is "studentID:”7813007”\n", startIndex is 13, endIndex is 20
+//    {                 //info is "studentID:¡±7813007¡±\n", startIndex is 13, endIndex is 20
 //    int counter = 0;
 //    int length = 0;
 //    
-//    while (counter<3) {//get a string of length //(e.g.)the strings is studentID:”7813007”
+//    while (counter<3) {//get a string of length //(e.g.)the strings is studentID:¡±7813007¡±
 //        if(info[length]=='\xe2')//then count before 2nd '\xe2' to get the length
 //        {
 //            counter++;
@@ -47,10 +102,11 @@ void main()
 //    int i;
 //    for(i = startIndex; i < endIndex; i++)
 //    {
-//        result[count] = info[i];//copy 7813007 from "studentID:”7813007”\n"
+//        result[count] = info[i];//copy 7813007 from "studentID:¡±7813007¡±\n"
 //        
 //        count++;
 //    }
-////        printf("%s",result);
+//        printf("%s",result);
 //    return result;//return 7813007
 //}
+
