@@ -259,7 +259,8 @@ void printMyCourses(struct Account account){
 
 
 float printMyTranscript(struct Account account){
-    int a, i, j, m, total;
+    int a, i, j, m;
+	int total = 0;
     int found = 0;
     int counter= 1;
     for(i=0; i<numberOfStudents;i++)
@@ -301,7 +302,8 @@ float printMyTranscript(struct Account account){
         
 //        printf("YOUR GPA IS: ");
     }
-    gpaData = total/(float)currentlyLoggedinStudent.numberOfCourses;
+    gpaData = 
+	(float)total/(float)currentlyLoggedinStudent.numberOfCourses;
     return gpaData;
 }
 
