@@ -3,7 +3,6 @@
 #include <string.h>
 #include <sys/time.h>
 #define MILLI_SEC 1000000
-#define MAX 4
 
 #define CoursesFile "Courses.txt"
 #define AccountsFile "Accounts.txt"
@@ -57,18 +56,18 @@ int numberOfCourses;
 int myRank;
 float gpaData;
 
+//Initialize
 void loginCheck(void);
 void showMenu(void);
 void showMenuOptions(void);
 void enrolmentCertificate(struct Account account);
 void printMyCourses(struct Account account);
 float printMyTranscript(struct Account account);
-float printMyGPA(struct Account account);
-void printMyRanking(struct Account account);
+float getMyGPA(struct Account account);
 void listAllCourses(void);
 void printAllStudents(void);
 void resetAccount(void);
-int getAllGPA(float mygpa);
+int getMyRank(float mygpa);
 
 char firstChar(char* line);
 int strLength(char* line);
@@ -154,13 +153,13 @@ void loginCheck(void){
         
         if(a==0&&b==0)
         {
-            currentlyLoggedinAccount = listOfAccounts[i];
+            currentlyLoggedinAccount = listOfAccounts[i]; //listofAccounts array's usename and password
             found = 1;
-            break;
+//            break;
         }
     }
     
-    if (found==1) {
+    if (found==1) {//succeed
     
         if (nanosleep(&req,NULL) == 0){
          printf("************************************************************\n");
@@ -191,7 +190,7 @@ void enrolmentCertificate(struct Account account){
         {
             found =1;
             currentlyLoggedinStudent = listOfStudents[i];
-            break;
+//            break;
         }
     }
     
@@ -224,7 +223,8 @@ void enrolmentCertificate(struct Account account){
 
 
 void printMyCourses(struct Account account){
-    int a, i, j;
+    int a, i, j, m;
+    int counter = 1;
     int found=0;
     for(i=0; i<numberOfStudents;i++)
     {
@@ -234,7 +234,7 @@ void printMyCourses(struct Account account){
         {
             found =1;
             currentlyLoggedinStudent = listOfStudents[i];
-            break;
+//            break;
         }
     }
     
@@ -243,20 +243,26 @@ void printMyCourses(struct Account account){
             printf("Hi %s,\n",currentlyLoggedinStudent.name);
             printf("You have taken the following courses: \n");
              
-             for(j=0; j<currentlyLoggedinStudent.numberOfCourses;j++)
-			 {
-                 
-                 if(strcmp(currentlyLoggedinStudent.courses[j],listOfStudentsCourses[j].courseID)==0)
-                 {
-                     printf("%d) %s: %s\n",j+1,currentlyLoggedinStudent.courses[j],listOfCourses[j].courseName);
+        for(j=0; j<numberOfStudentsCourses;j++)
+		{
+            for(m=0; m<numberOfCourses; m++)
+			{
+            
+              if(strcmp(currentlyLoggedinStudent.studentID,listOfStudentsCourses[j].studentID)==0)
+               {
+               	 if(strcmp(listOfStudentsCourses[j].courseID,listOfCourses[m].courseID)==0)
+               	 {
+                 printf("%d) %s: %s: %d\n",counter,listOfStudentsCourses[j].courseID,listOfCourses[m].courseName,listOfStudentsCourses[j].mark);
+        
+                 counter++;
                  }
-                 
-             }/*end of the for loop*/
-             
-         }
-    
-}/*end of the function*/
-
+                
+               }
+            }/*end of the j's for loop*/
+            
+        }/*end of the i's for loop*/
+    }
+}
 
 float printMyTranscript(struct Account account){
     int a, i, j, m;
@@ -271,7 +277,7 @@ float printMyTranscript(struct Account account){
         {
             found =1;
             currentlyLoggedinStudent = listOfStudents[i];
-            break;
+//            break;
         }
     }
     
@@ -308,10 +314,10 @@ float printMyTranscript(struct Account account){
 }
 
 
-float printMyGPA(struct Account account){
-    int a, i, j, m, total;
+float getMyGPA(struct Account account){
+    int a, i, j, m;
+	int total = 0;
     int found = 0;
-    int counter = 1;
     for(i=0; i<numberOfStudents;i++)
     {
         a= strcmp(listOfStudents[i].studentID,account.username);
@@ -320,7 +326,7 @@ float printMyGPA(struct Account account){
         {
             found =1;
             currentlyLoggedinStudent = listOfStudents[i];
-            break;
+//            break;
         }
     }
     
@@ -336,7 +342,6 @@ float printMyGPA(struct Account account){
                	 if(strcmp(listOfStudentsCourses[j].courseID,listOfCourses[m].courseID)==0)
                	 {
                  total += listOfStudentsCourses[j].mark;
-                 counter++;
                  }
                 
                }
@@ -348,11 +353,11 @@ float printMyGPA(struct Account account){
     gpaData = total/(float)currentlyLoggedinStudent.numberOfCourses;
     return gpaData;
 }
-int getAllGPA(float mygpa){
+int getMyRank(float mygpa){//calculate all of students's GPA
 	int i, k, j, m;
     int a = 0;
     float tem = 0;
-    float temIndex = 0; /*to calculate the number of succeeded strump*/
+    float temIndex = 0; /*to calculate the number of succeeded strcmp*/
     float array[100];
     
     for(i=0; i<numberOfStudents;i++)
@@ -369,7 +374,7 @@ int getAllGPA(float mygpa){
             
         }/*end of k's for loop*/
         
-        array[i] = tem / temIndex;
+        array[i] = tem / temIndex;//caculate each person's GPA and put answer into array
         
         /*We need to initialize it again because we make the pc calculate next person's data.*/
         tem = 0;
@@ -1077,7 +1082,7 @@ void showMenu(void)
 
         case 4:
             
-            gpaData = printMyGPA(currentlyLoggedinAccount);
+            gpaData = getMyGPA(currentlyLoggedinAccount);
             printf("Hi %s,\n",currentlyLoggedinStudent.name);
             printf("YOUR GPA IS: ");
             printf("%f",gpaData);
@@ -1085,12 +1090,12 @@ void showMenu(void)
             break;
 
         case 5:
-            gpaData = printMyGPA(currentlyLoggedinAccount);
+            gpaData = getMyGPA(currentlyLoggedinAccount);
             printf("Hi %s,\n",currentlyLoggedinStudent.name);
             printf("YOUR GPA IS: ");
             printf("%f",gpaData);
             
-            myRank = getAllGPA(gpaData);
+            myRank = getMyRank(gpaData);
             printf(" and therefore your rank is %d\n",myRank);
             showMenuOptions();
             break;
