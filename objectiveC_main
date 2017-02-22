@@ -1,0 +1,62 @@
+//
+//  main.m
+//  Linkedin
+//
+//  Created by HannahPark on 2017-02-21.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+#import "Account.h"
+#import "Profile.h"
+#import "FeedManager.h"
+
+
+int main(int argc, const char * argv[]) {
+    
+    //create an account object
+    
+    
+    //Step1: Creating an account object
+    Account* myAccount = [[Account alloc] initWithUsername:@"hannah" password:@"hannah123"];
+    
+    
+    //Sep2: Checking whether the account is valid or not
+    BOOL isValid = [myAccount isAccountValid];
+    
+    if(isValid==true)
+    {
+        NSLog(@"\nThis account is Valid\n");
+    }
+    else
+    {
+        NSLog(@"\nThis account is Not Valid\n");
+    }
+    
+    //create a profile object
+    //Step3:
+    Profile* myProfile = [[Profile alloc] initWithFirstname:@"Hannah" lastname:@"Park" address:@"Vancouver" age:32 phoneNumber:@"1234567" profilePicURL:@"http://gmail.com"];
+    
+    [myProfile printProfile];
+    
+    
+    //Ask Linkedin to show us 10 most recent posts
+    
+    FeedsManager* feedManager = [[FeedsManager alloc] init];
+    NSArray<Post*>* listOfPosts = [feedManager loadsFeedsForAccount:myAccount amount:10];
+    
+    for(int i=0; i<listOfPosts.count; i++)
+    {
+        Post* posts = [listOfPosts objectAtIndex:i];
+        
+        [post show];
+        
+        [post reportThePost];
+        
+        Like* like = [like alloc] initWithLikeID: 1 likeOwner:(User*) date:(NSDate*)
+        post addLike:
+    }
+    
+    
+    return NSApplicationMain(argc, argv);
+}
