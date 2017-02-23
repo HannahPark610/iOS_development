@@ -12,12 +12,13 @@
 
 -(id) initWithUsername:(NSString*)myUsername password:(NSString*)myPassword
 {
-    self = [super init]; //allocated some memory
+    self = [super init];  //allocated some memory
     if(self)
     {
         self.username = myUsername;
         self.password = myPassword;
     }
+    
     return self;
 }
 
