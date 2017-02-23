@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
+#import "Attachment.h"
+
+
+//POJO: Plain Old Java Object: Classes with only properties and constructors and no methods in addition to their getters and setters
 
 @interface PostComment : NSObject
-
 
 //properties
 
@@ -19,10 +23,8 @@
 @property (strong, nonatomic) NSMutableArray<Attachment*>* attachments;
 
 //constructors
-
--(id) initWithCommentID:(int)commentID commentAuthor:(User*)commentAuthor dte:(NSDate*)date attachments:(NSMutableArray<Attachment*>*)attachments;
+-(id) initWithCommentID:(int)commentID commentAuthor:(User*)commentAuthor date:(NSDate*)date attachments:(NSMutableArray<Attachment*>*)attachments;
 
 //methods (APIs)
-
 
 @end
