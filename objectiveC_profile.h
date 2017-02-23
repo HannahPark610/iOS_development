@@ -6,25 +6,26 @@
 //  Copyright © 2017 HannahPark. All rights reserved.
 //
 
-#import "Account.h"
+#import <Foundation/Foundation.h>
 
-@implementation Account
+@interface Profile : NSObject
 
--(id) initWithUsername:(NSString*)myUsername password:(NSString*)myPassword
-{
-    self = [super init]; //allocated some memory
-    if(self)
-    {
-        self.username = myUsername;
-        self.password = myPassword;
-    }
-    return self;
-}
+//properties
 
+@property (strong, nonatomic) NSString* firstname;
+@property (strong, nonatomic) NSString* lastname;
+@property (strong, nonatomic) NSString* address;
+@property int age;
+@property (strong, nonatomic) NSString* phoneNumber;
+@property (strong, nonatomic) NSString* profilePicURL;
 
--(BOOL) isAccountValid
-{
-    return true;
-}
+//constructors
+-(id) initWithFirstname:(NSString*)firstname lastname:(NSString*)lastname address:(NSString*)address age:(int)age phoneNumber:(NSString*)phoneNumber profilePicURL:(NSString*)profilePicURL;
 
+//methods (APIs)
+-(void) editProfileWithNewfirstname:(NSString*)newFirstname newLastname:(NSString*)newLastname newAddress:(NSString*)newAddress newAge:(int)newAge newPhoneNumber:(NSString*)newPhoneNumber newProfilePicURL:(NSString*)newProfilePicURL;
+
+-(void) saveProfile;
+
+-(void) printProfile;
 @end
