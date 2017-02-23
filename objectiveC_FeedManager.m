@@ -6,8 +6,12 @@
 //  Copyright © 2017 HannahPark. All rights reserved.
 //
 
-#import "FeedManager.h"
+#import "FeedsManager.h"
 
-@implementation FeedManager
+@implementation FeedsManager
 
+-(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds
+{
+    return NULL;
+}
 @end
