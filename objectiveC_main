@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "Account.h"
 #import "Profile.h"
-#import "FeedManager.h"
+#import "FeedsManager.h"
 
 int main(int argc, const char * argv[]) {
     
@@ -18,7 +18,7 @@ int main(int argc, const char * argv[]) {
     //Step1: Creating an account object
     Account* myAccount = [[Account alloc] initWithUsername:@"alireza" password:@"ali123"];
     
-    
+
     
     //Step2: Checking whether the account is valid or not
     BOOL isValid = [myAccount isAccountValid];
