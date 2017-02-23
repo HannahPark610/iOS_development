@@ -10,7 +10,7 @@
 
 @implementation PostComment
 
--(id) initWithCommentID:(int)commentID commentAuthor:(User*)commentAuthor dte:(NSDate*)date attachments:(NSMutableArray<Attachment*>*)attachments
+-(id) initWithCommentID:(int)commentID commentAuthor:(User*)commentAuthor date:(NSDate*)date attachments:(NSMutableArray<Attachment*>*)attachments
 {
     self = [super init];
     
@@ -21,8 +21,6 @@
         self.date = date;
         self.attachments = attachments;
     }
-    
-    return self;
+    return  self;
 }
-
 @end
