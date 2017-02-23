@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "User.h"
-#import "Like.h"
 
 @interface Like : NSObject
 
@@ -18,23 +17,11 @@
 @property (strong, nonatomic) User* likeOwner;
 @property (strong, nonatomic) NSDate* date;
 
-
 //constructors
 
--(id) initWithLikeID:(int)likeID likeOwner:(User*)likeOwner date:(NSDate*)date
-{
-    self= [super init];
-    
-    if(self)
-    {
-        self.likeID = likeID;
-        self.likeOwner = likeOwner;
-        self.date = date;
-    }
-    
-    return self;
-}
+-(id) initWithLikeID:(int)likeID likeOwner:(User*)likeOwner date:(NSDate*)date;
 
 //methods (APIs)
+
 
 @end
