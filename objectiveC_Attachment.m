@@ -10,16 +10,16 @@
 
 @implementation Attachment
 
--(id) initWithAttachmebtID:(int)attachmentID type:(int)type dataURL:(NSString*)dateURL
+-(id) initWithAttachementID:(int)attachmentID type:(int)type dataURL:(NSString*)dataURL
 {
     self = [super init];
-    
     if(self)
     {
-        self.attachmentID = attachmentID;
+        self.attachementID = attachmentID;
         self.type = type;
         self.dataURL = dataURL;
     }
+    
     return self;
 }
 
