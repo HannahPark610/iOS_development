@@ -12,13 +12,13 @@
 
 //properties
 
-@property int attachmentID;
+@property int attachementID;
 @property int type;
 @property (strong, nonatomic) NSString* dataURL;
 
 //constructors
 
--(id) initWithAttachmebtID:(int)attachmentID type:(int)type dataURL:(NSString*)dateURL;
+-(id) initWithAttachementID:(int)attachmentID type:(int)type dataURL:(NSString*)dateURL;
 
 //methods (APIs)
 
