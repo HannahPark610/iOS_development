@@ -6,25 +6,18 @@
 //  Copyright © 2017 HannahPark. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "Account.h"
+#import "Post.h"
 
-@implementation Account
+@interface FeedsManager : NSObject
 
--(id) initWithUsername:(NSString*)myUsername password:(NSString*)myPassword
-{
-    self = [super init]; //allocated some memory
-    if(self)
-    {
-        self.username = myUsername;
-        self.password = myPassword;
-    }
-    return self;
-}
+//properties
 
+//constructors
 
--(BOOL) isAccountValid
-{
-    return true;
-}
+//methods (APIs)
+
+-(NSArray<Post*>*) loadsFeedsForAccount:(Account*)account amount:(int)numberOfFeeds;
 
 @end
