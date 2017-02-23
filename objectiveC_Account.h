@@ -14,19 +14,12 @@
 
 //username
 //password
-
 @property (strong, nonatomic) NSString* username;
 @property (strong, nonatomic) NSString* password;
 
-
 //constructors
 
-//-(id) init(NSString* username, NSString* password);
-//-(id) initWithUsername:(NSString*)myusername password:(NSString*)mypassword;
-/** This is how to change in Objective C language**/
-
 -(id) initWithUsername:(NSString*)myUsername password:(NSString*)myPassword;
-
 
 //methods (APIs)
 
