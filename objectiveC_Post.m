@@ -6,42 +6,62 @@
 //  Copyright © 2017 HannahPark. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "User.h"
-#import "Attachment.h"
-#import "Like.h"
-#import "PostComment.h"
+#import "Post.h"
 
-@interface Post : NSObject
-
-//properties
-
-@property (strong, nonatomic) NSDate* date;
-@property (strong, nonatomic) User* author;
-
-@property (strong, nonatomic) NSMutableArray<Attachment*>* attachments;
-@property int numberOfLike;
-@property int numberOfComments;
-
-@property (strong, nonatomic) NSMutableArray<Like*>* likes;
-@property (strong, nonatomic) NSMutableArray<PostComment*>* comments;
-
-@property BOOL isReported;
-
-@property int type;
+@implementation Post
 
 
+-(id) initWithDate:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments numberOflikes:(int)nofLikes numberOfComments:(int)nofComments likes:(NSMutableArray<Like*>*)likes comments:(NSMutableArray<PostComment*>*)comments type:(int)type
+{
+    self = [super init];
+    
+    if(self)
+    {
+        self.date = date;
+        self.author = author;
+        self.attachments = attachments;
+        self.numberOfLikes = nofLikes;
+        
+        self.numberOfComments = nofComments;
+        
+        self.likes = likes;
+        self.comments = comments;
+        
+        self.type = type;
+        
+        self.isReported = false;
+    }
+    
+    return self;
+}
 
-//constructors
+-(void) addLike:(Like*) newLike
+{
+    self.numberOfLikes++;
+    [self.likes addObject:newLike];
+}
 
--(id) initWithDate:(NSDate*)date author:(User*)author attachments:(NSMutableArray<Attachment*>*)attachments numberOflikes: (int)numberOflikes numberOfComments:(int)numberOfComments likes:(NSMutableArray<Like*>*)likes comments:(NSMutableArray<PostComment*>*)comments type:(int)type;
+-(void) addComment:(PostComment*) newComment
+{
+    self.numberOfComments++;
+    [self.comments addObject:newComment];
+    
 
+}
 
-//method (APIs)
--(void) addLike:(Like*) newLike;
--(void) addComment:(PostComment*) newComment;
+-(void) EditPostWithNewAttachments:(NSArray<Attachment*>*) newAttachments newType:(int) newType
+{
+    //To-Do
+}
 
+-(void) reportThePost
+{
+    self.isReported = true;
+}
 
--(void) EditPostWithNewAttachments:(NSMutableArray<Attachment*>*) newAttachnebts newType(int)newType;
+-(void) show
+{
+    NSLog(@"I am here ");
+}
 
 @end
