@@ -1,33 +1,47 @@
 //
-//  Recommendation.h
+//  FindFood.m
 //  yelp
 //
 //  Created by HannahPark on 2017-02-22.
 //  Copyright © 2017 HannahPark. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Search.h"
 #import "FindFood.h"
-#import "Review.h"
-#import "RInfo.h"
 
-@interface Recommendation : NSObject
+@implementation FindFood
 
-//properties
-@property (strong, nonatomic) NSString* Rname;
-@property (strong, nonatomic) NSMutableArray<RInfo*>* RInfo;
-@property (strong, nonatomic) NSMutableArray<Review*>* review;
-@property int phoneNumber;
+-(id) initWithRecommendation:(NSMutableArray*)recommendation googleMap:(NSData*)googleMap
+{
+    self = [super init];
+    
+    if(self)
+    {
+        self.recommendation = recommendation;
+        self.googleMap = googleMap;
+        
+    }
+    
+    return self;
+}
 
+//method (APIs)
 
-//constructors
--(id) initWithRname:(NSString*)Rname RInfo:(NSString*)RInfo review:(NSMutableArray<Review*>*)review phoneNumber:(int)phoneNumber;
+-(void) EditFindFoodWithNewRecommendation:(NSMutableArray<Recommendation*>*)newRecommendation newgoogleMap:(NSData*) newgoogleMap
+{
+    self.recommendation = newRecommendation;
+    self.googleMap = newgoogleMap;
+    
+}
 
+-(void) printRecommendations
+{
+    
+}
 
-//methods (APIs)
-
-
+-(void) saveGoogleMap
+{
+    
+}
 
 
 
