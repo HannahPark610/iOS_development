@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "SeeReviewing.h"
 #import "WriteReviewing.h"
-#import "Review.h"
 
 @interface Review : NSObject
 
@@ -27,6 +26,7 @@
 
 
 //methods (APIs)
+-(void) addReview:(Review*) newReview;
 
 
 
