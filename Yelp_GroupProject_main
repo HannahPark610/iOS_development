@@ -18,6 +18,7 @@
 #import "WriteReviewing.h"
 #import "AdditionalTip.h"
 #import "RInfo.h"
+#import "PostComment.h"
 
 
 int main(int argc, const char * argv[]) {
