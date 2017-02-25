@@ -25,5 +25,9 @@
     return self;
 }
 
+-(void) showOtherRInfo
+{
+    
+}
 
 @end
