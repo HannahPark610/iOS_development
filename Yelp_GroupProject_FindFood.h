@@ -15,18 +15,21 @@
 
 //properties
 @property (strong, nonatomic) NSMutableArray<Recommendation*>* recommendation;
-@property (strong, nonatomic) NSDate* googleMap;
+@property (strong, nonatomic) NSData* googleMap;
 
 
 
 //constructors
 
--(id) initWithRecommendation:(NSMutableArray*)recommendation googleMap:(NSDate*)googleMap;
+-(id) initWithRecommendation:(NSMutableArray*)recommendation googleMap:(NSData*)googleMap;
 
 //method (APIs)
 
--(void) EditFindFoodWithNewRecommendation:(NSArray<Recommendation*>*)newRecommendation newgoogleMap:(NSDate*) newgoogleMap;
+-(void) EditFindFoodWithNewRecommendation:(NSMutableArray<Recommendation*>*)newRecommendation newgoogleMap:(NSData*) newgoogleMap;
 
+-(void) printRecommendations;
+
+-(void) saveGoogleMap;
 
 
 
