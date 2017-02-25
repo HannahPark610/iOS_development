@@ -10,9 +10,16 @@
 
 @implementation Review
 
--(id) initWithSeeReviewing:(NSMutableArray<SeeReviewing*>*)SeeReviewing WriteReviewing:(NSMutableArray<WriteReviewing*>*) WriteReviewing Review:(NSMutableArray<Review*>*) Review
+-(id) initWithSeeReviewing:(NSMutableArray<SeeReviewing*>*)SeeReviewing WriteReviewing:(NSMutableArray<WriteReviewing*>*) WriteReviewing review:(NSMutableArray<Review*>*) Review
 {
+    self = [super init];
     
+    if(self)
+    {
+        
+    }
+    
+    return self;
 }
 
 @end
