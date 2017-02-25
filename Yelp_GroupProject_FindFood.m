@@ -10,7 +10,7 @@
 
 @implementation FindFood
 
--(id) initWithRecommendation:(NSMutableArray*)recommendation googleMap:(NSDate*)googleMap
+-(id) initWithRecommendation:(NSMutableArray*)recommendation googleMap:(NSData*)googleMap
 {
     self = [super init];
     
@@ -26,10 +26,20 @@
 
 //method (APIs)
 
--(void) EditFindFoodWithNewRecommendation:(NSMutableArray<Recommendation*>*)newRecommendation newgoogleMap:(NSDate*) newgoogleMap
+-(void) EditFindFoodWithNewRecommendation:(NSMutableArray<Recommendation*>*)newRecommendation newgoogleMap:(NSData*) newgoogleMap
 {
     self.recommendation = newRecommendation;
     self.googleMap = newgoogleMap;
+    
+}
+
+-(void) printRecommendations
+{
+    
+}
+
+-(void) saveGoogleMap
+{
     
 }
 
