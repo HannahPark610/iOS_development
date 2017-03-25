@@ -1,0 +1,62 @@
+//
+//  main.m
+//  ShoppingCart_ver2
+//
+//  Created by HannahPark on 2017-03-22.
+//  Copyright © 2017 HannahPark. All rights reserved.
+//
+
+#import <Cocoa/Cocoa.h>
+#import "Product.h"
+#import "Drink.h"
+#import "Food.h"
+#import "Cloth.h"
+#import "ShoppingCart.h"
+#import "Material.h"
+
+
+int main(int argc, const char * argv[]) {
+    
+    
+    Drink* drink1 = [[Drink alloc] initWithProductID:412 name:@"Pepsi" price:2 country:@"USA" diet:NO size:150];
+    Drink* drink2 = [[Drink alloc] initWithProductID:412 name:@"Pepsi" price:2 country:@"USA" diet:NO size:150];
+    Drink* drink3 = [[Drink alloc] initWithProductID:412 name:@"Pepsi" price:2 country:@"USA" diet:NO size:150];
+    
+    Drink* drink4 = [[Drink alloc] initWithProductID:183 name:@"Ginger Zero" price:3 country:@"Canada" diet:YES size:200];
+    
+    Food* food1 = [[Food alloc] initWithProductID:100 name:@"Chicken" price:8 country:@"Canada" calorie:350 size:4 ingredients:[NSMutableArray arrayWithObjects:@"chicken", @"oil", @"chees", nil]];
+    Food* food2 = [[Food alloc] initWithProductID:100 name:@"Chicken" price:8 country:@"Canada" calorie:350 size:4 ingredients:[NSMutableArray arrayWithObjects:@"chicken", @"oil", @"chees", nil]];
+    
+    Food* food3 = [[Food alloc] initWithProductID:101 name:@"Pasta" price:18 country:@"Canada" calorie:250 size:3 ingredients:[NSMutableArray arrayWithObjects:@"pasta", @"meat", @"spinach", nil]];
+    Food* food4 = [[Food alloc] initWithProductID:101 name:@"Pasta" price:18 country:@"Canada" calorie:250 size:3 ingredients:[NSMutableArray arrayWithObjects:@"pasta", @"meat", @"spinach", nil]];
+    
+    
+    Material* material1 =[[Material alloc] initWithCode:10 materialName:@"cotton"];
+    Material* material2 =[[Material alloc] initWithCode:11 materialName:@"Nylon"];
+    
+    
+    Cloth* cloth = [[Cloth alloc] initWithProductID:701 name:@"T-shirt" price:15 country:@"China" materials:[NSMutableArray arrayWithObjects:material1, material2, nil]];
+    
+    ShoppingCart* mycart = [[ShoppingCart alloc] init];
+    
+    //add the products
+    [mycart addProduct:drink1];
+    [mycart addProduct:drink2];
+    [mycart addProduct:drink3];
+    [mycart addProduct:drink4];
+    [mycart addProduct:food1];
+    [mycart addProduct:food2];
+    [mycart addProduct:food3];
+    [mycart addProduct:food4];
+    [mycart addProduct:cloth];
+    
+    //calculate amount
+    [mycart calculateAmount:mycart.list];
+    
+    //print out all of shopping cart product
+    [mycart printOut:mycart.list];
+    
+    
+    
+    return NSApplicationMain(argc, argv);
+}
