@@ -15,7 +15,8 @@
 @property int size;
 @property (strong, nonatomic) NSMutableArray* ingredients;
 
--(id)initWithProductID:(int)productID name:(NSString*)name price:(int)price country:(NSString*)country calorie:(int)calorie size:(int)size ingredients:(NSMutableArray<NSString*>*)ingredients;
+-(id)initWithProductID:(int)productID name:(NSString*)name price:(int)price country:(NSString*)country calorie:(int)calorie
+  size:(int)size ingredients:(NSMutableArray<NSString*>*)ingredients;
 - (float)pricePerProduct;
 
 @end
